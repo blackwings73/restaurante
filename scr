@@ -1,0 +1,42 @@
+drop database if exists restaurantes ;
+create database if not exists restaurantes ;
+use restaurantes ;
+create table if not exists clientes (
+cliente_id int auto_increment primary key,
+nome varchar(100),
+telefone varchar(15)
+);
+create table if not exists pratos (
+prato_id  int auto_increment primary key,
+nome varchar(100),
+preco decimal(10,2)
+);
+create table if not exists pedidos (
+pedido_id  int auto_increment primary key,
+cliente_id int,
+dados_pedido text
+);
+create table if not exists items (
+item_id  int auto_increment primary key,
+pedido_id int,
+id_prato int,
+quantidade int
+);
+insert into Clientes(cliente_id,nome,telefone) values
+('1','fernando','111111111111111'),
+('2','ryan','222222222222222'),
+('3','ninna','333333333333333'),
+('4','gordola','444444444444444'),
+('5','Pretinho','555555555555555');
+
+insert into Pratos(prato_id,nome,preco) values
+('11','enrabada','10.0'),
+('12','elevacao pelvica','15.0'),
+('13','pessego','12.0'),
+('14','feijoada com linguiça','10.0'),
+('15','pao de batata','15.0');
+
+insert into Pedidos(pedido_id,cliente_id,dados_pedido) values
+('100','1','para fernando'),
+('101','2','para ryan'),
+('102','3','para ninna');
